@@ -27,6 +27,6 @@ build/Release
 node_modules
 
 # IntelliJ
-.iml
+*.iml
 .idea/
 
