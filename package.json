@@ -1,0 +1,9 @@
+{
+  "name": "slack-bot",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "hapi" : "~8.x",
+    "unirest" : "~0.4.x"
+  }
+}
