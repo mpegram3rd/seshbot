@@ -33,6 +33,6 @@ server.on('internalError', function (request, error) {
 
 // Log the listen URL
 server.start(function() {
-    console.log("Slackbot listening @ " + server.info.uri);
+    console.log("Seshbot listening @ " + server.info.uri);
 });
 
