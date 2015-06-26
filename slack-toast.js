@@ -6,9 +6,9 @@ var untappd = require('./untappd-api.js');
 exports.handler =
     function(req, reply) {
         var toaster = '<@' + req.payload.user_id + '|' + req.payload.user_name + '>';
-        var toastee= req.payload.text;
+        var toastee= normalizeName(req.payload.text);
         var channel_name = "#" + req.payload.channel_name;
-        var untappdId = config.usermap[req.payload.text];
+        var untappdId = config.usermap[toastee];
         untappd.pickAFavorite(untappdId, function(beerInfo){
             var webhookMessage = {
                 text : '*' + toaster + '*'
@@ -32,3 +32,14 @@ exports.handler =
         });
         reply();
     };
+
+// Makes sure name is converted to lowercase and starts with '@'
+function normalizeName(nameIn) {
+    var result = nameIn;
+    if (result && result.length > 0) {
+        result = result.toLowerCase();
+        result = (result.charAt(0) == '@' ? result : '@' + result);
+    }
+
+    return result;
+}
