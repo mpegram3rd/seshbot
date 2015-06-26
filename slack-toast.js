@@ -14,12 +14,12 @@ exports.handler =
                 text : '*' + toaster + '*'
                 + " has toasted *"
                 + toastee
-                +"*\nHave a nice cold " + beerInfo.beer
-                + " by " + beerInfo.brewery,
+                +"*\nHave a nice cold *" + beerInfo.beer
+                + "* by *" + beerInfo.brewery + "*",
                 channel : channel_name,
                 icon_emoji : ":beers:"
             };
-            console.log(JSON.stringify(webhookMessage));
+//            console.log(JSON.stringify(webhookMessage));
             unirest.post(config.webHookURL)
                 .header('Accept', 'application/json')
                 .send("payload=" + JSON.stringify(webhookMessage))
