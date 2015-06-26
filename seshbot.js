@@ -6,7 +6,7 @@ server.connection({port: 8888});
 
 // JSON response from a POST update.
 server.route ({
-    path: "/slackbeerbot",
+    path: "/seshbot",
     method: "POST",
     config: {
         handler: slackToast.handler
