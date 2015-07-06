@@ -1,4 +1,3 @@
-exports.webHookURL = 'https://hooks.slack.com/services/YOUR/MAGICNUMBER';
 exports.usermap = {
     'slackusername1' : 'untappdusername1',
     'slackusername2' : 'untappdusername2'
@@ -61,3 +60,4 @@ exports.beerInfo['UNTAPPDID2'] =
             brewery : 'The Answer'
         }
     ];
+exports.webHookURL = 'https://hooks.slack.com/services/REPLACEME/WITHVALUES';
