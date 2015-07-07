@@ -1,6 +1,6 @@
 var unirest = require("unirest");
 var config = require('./config.js');
-var untappd = require('../untappd/untappd-api.js');
+var untappd = require('../untappd/favorites.js');
 
 exports.handler =
     function(req, reply) {
