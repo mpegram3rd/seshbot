@@ -1,9 +1,11 @@
 {
-  "name": "slack-bot",
+  "name": "Sesh-bot",
   "version": "0.0.1",
+  "description" : "A Slack bot implementation to enhance your Seshns",
   "private": true,
   "dependencies": {
     "hapi" : "~8.x",
-    "unirest" : "~0.4.x"
+    "unirest" : "~0.4.x",
+    "underscore" : "~1.8.x"
   }
 }

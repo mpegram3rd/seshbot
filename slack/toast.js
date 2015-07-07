@@ -1,15 +1,14 @@
-var Hapi = require('hapi');
 var unirest = require("unirest");
 var config = require('./config.js');
-var untappd = require('./untappd-api.js');
+var untappd = require('../untappd/untappd-api.js');
 
 exports.handler =
     function(req, reply) {
         var toaster = '<@' + req.payload.user_id + '|' + req.payload.user_name + '>';
         var toastee= normalizeName(req.payload.text);
         var channel_name = "#" + req.payload.channel_name;
-        var untappdId = config.usermap[toastee];
-        untappd.pickAFavorite(untappdId, function(beerInfo){
+        var untappdUser = config.usermap[toastee];
+        untappd.pickAFavorite(untappdUser, function(beerInfo) {
             var webhookMessage = {
                 text : '*' + toaster + '*'
                 + " has toasted *"
@@ -19,7 +18,6 @@ exports.handler =
                 channel : channel_name,
                 icon_emoji : ":beers:"
             };
-//            console.log(JSON.stringify(webhookMessage));
             unirest.post(config.webHookURL)
                 .header('Accept', 'application/json')
                 .send("payload=" + JSON.stringify(webhookMessage))
