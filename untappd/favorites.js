@@ -64,8 +64,15 @@ function favoritesResponseHandler(response) {
             };
         });
     }
-    else
-        console.log('[Untappd Error Response]: ' + response.body);
+    else {
+        if (response.statusCode) {
+            console.log('[Untappd Error Response]: ' + response.body);
+        }
+        else {
+            console.log('[Untappd Error Response]: ' + JSON.stringify(response));
+        }
+    }
+
     return cachedValue;
 }
 
